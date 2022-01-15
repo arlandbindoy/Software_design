@@ -1,0 +1,39 @@
+<html>
+    <head>
+        <meta name="viewport" content="with=device-widt",initial-scale=1.0>
+        <link rel="stylesheet" href="{{ url_for('static',filename='inventory.css') }}">
+    <title>Registration Table</title>
+    </head>
+    <body>
+        <form action="/create" method="POST">
+        <h1>Inventory Table</h1>
+        <table border="2">
+            <thead>
+                <td>Rice ID</td>
+                <td>Rice Name</td>
+                <td>Rice Stock</td>
+                <td>Rice Price</td>
+            </thead>
+            {% for row in rows %}
+            <tr>
+                <td>{{row['rice_id']}}</td>
+                <td>{{row['rice_name']}}</td>
+                <td>{{row['rice_stock']}}</td>
+                <td>{{row['rice_price']}}</td>
+                
+            </tr>
+            {% endfor %}
+        </table><br>
+        <label for="id"><b>Rice ID</b></label>
+              <input type="text" placeholder="Enter Rice ID" name="rice_id" id="rice_id" >
+        <label for="id"><b>Rice Name</b></label>
+              <input type="text" placeholder="Enter Rice Name" name="rice_name" id="rice_name" >
+        <label for="id"><b>Rice Stock</b></label>
+              <input type="text" placeholder="Enter Rice Stock" name="rice_stock" id="rice_stock" >
+        <label for="id"><b>Rice Price</b></label>
+              <input type="text" placeholder="Enter Rice Price" name="rice_price" id="rice_price" >
+        <a method="POST" href="{{ url_for('create_inventory') }}" ><button>Create</button></a>      
+        <a href="{{ url_for('home') }}"><button>Back</button></a>
+        </form>
+    </body>
+</html>

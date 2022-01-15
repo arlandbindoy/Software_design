@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test</title>
+    <link rel="stylesheet" href="{{ url_for('static',filename='login.css') }}">
+</head>
+<body>
+    <div class="overlay">
+        <!-- LOGN IN FORM by Omar Dsoky -->
+        <form action="/home" method="POST">
+           <!--   con = Container  for items in the form-->
+           <div class="con">
+           <!--     Start  header Content  -->
+           <header class="head-form">
+              <h2>Log In</h2>
+              <!--     A welcome message or an explanation of the login form -->
+              <p>login here using your username and password</p>
+           </header>
+           <!--     End  header Content  -->
+           <br>
+           <div class="field-set">
+             
+              <!--   user name -->
+                 <span class="input-item">
+                   <i class="fa fa-user-circle"></i>
+                 </span>
+                <!--   user name Input-->
+                 <input class="form-input" id="username" name="user_username" type="text" placeholder="@UserName" required>
+              <br>
+             
+                   <!--   Password -->
+             
+              <span class="input-item">
+                <i class="fa fa-key"></i>
+               </span>
+              <!--   Password Input-->
+              <input class="form-input" type="password" placeholder="Password" id="password"  name="user_password" required>
+             
+        <!--      Show/hide password  -->
+             <span>
+                <i class="fa fa-eye" aria-hidden="true"  type="button" id="eye"></i>
+             </span>
+             
+             
+              <br>
+        <!--        buttons -->
+        <!--      button LogIn -->
+        <a href="{{ url_for('home') }}"><button class="log-in"> Log In </button></a>
+
+           </div>
+         </form>
+          
+        <!--   other buttons -->
+         <form action="/registration" method="POST">
+         <div class="other">
+        <!--      Forgot Password button-->
+        <!--     Sign Up button -->
+              <a href="{{ url_for('registration') }}"><button class="btn submits sign-up">Sign Up 
+        <!--         Sign Up font icon -->
+              <i class="fa fa-user-plus" aria-hidden="true"></i>
+              </button></a>
+        <!--      End Other the Division -->
+           </div>
+           </form>             
+        <!--   End Conrainer  -->
+          </div>
+          
+          <!-- End Form -->
+        </div>
+</body>
+</html>

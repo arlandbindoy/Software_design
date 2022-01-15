@@ -1,0 +1,33 @@
+<html>
+    <head>
+        <meta name="viewport" content="with=device-widt",initial-scale=1.0>
+        <link rel="stylesheet" href="{{ url_for('static',filename='inventory.css') }}">
+    <title>Registration Table</title>
+    </head>
+    <body>
+        <form method="POST">
+        <h1>Inventory Table</h1>
+        <table border="2">
+            <thead>
+                <td>Rice ID</td>
+                <td>Rice Name</td>
+                <td>Rice Stock</td>
+                <td>Rice Price</td>
+            </thead>
+            {% for row in rows %}
+            <tr>
+                <td>{{row['rice_id']}}</td>
+                <td>{{row['rice_name']}}</td>
+                <td>{{row['rice_stock']}}</td>
+                <td>{{row['rice_price']}}</td>
+                
+            </tr>
+            {% endfor %}
+        </table><br>
+        <label for="id"><b>Delete</b></label>
+              <input type="text" placeholder="Enter Rice ID to delete" name="delete" id="rice_id" >
+        <a method="POST" href="{{ url_for('delete') }}" ><button>Delete</button></a>      
+        <a href="{{ url_for('home') }}"><button>Back</button></a>
+        </form>
+    </body>
+</html>

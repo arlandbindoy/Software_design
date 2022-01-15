@@ -1,0 +1,36 @@
+<html>
+    <head>
+        <meta name="viewport" content="with=device-widt",initial-scale=1.0>
+        <link rel="stylesheet" href="{{ url_for('static',filename='inventory.css') }}">
+    <title>Registration Table</title>
+    </head>
+    <body>
+        <form method="POST">
+        <h1>Expense report</h1>
+        <table border="2">
+            <thead>
+                <td>Rice ID</td>
+                <td>Rice Name</td>
+                <td>Rice Stock</td>
+                <td>Rice Price</td>
+            </thead>
+            {% for row in rows %}
+            <tr>
+                <td>{{row['rice_id']}}</td>
+                <td>{{row['rice_name']}}</td>
+                <td>{{row['rice_stock']}}</td>
+                <td>{{row['rice_price']}}</td>
+                
+            </tr>
+            {% endfor %}
+        </table><br>
+        <label for="id"><b>Rice Name</b></label>
+              <input type="text" placeholder="Enter Rice ID" name="rice_id" id="rice_id" >
+        <label for="id"><b>Rice Stock</b></label>
+              <input type="text" placeholder="Enter the Quantity of Rice" name="rice_stock" id="rice_stock" >
+              <a href="{{ url_for('listsales') }}" ><button>Calculate</button></a>
+        </form>
+        <div>
+        <a href="{{ url_for('home') }}"><button>Back</button></a></div>
+    </body>
+</html>

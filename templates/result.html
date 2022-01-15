@@ -1,0 +1,31 @@
+<html>
+    <head>
+        <meta name="viewport" content="with=device-widt",initial-scale=1.0>
+        <link rel="stylesheet" href="{{ url_for('static',filename='inventory.css') }}">
+    <title>Registration Table</title>
+    </head>
+    <body>
+        <form method="POST">
+        <h1>Inventory Table</h1>
+        <table border="2">
+            <thead>
+                <td>Rice ID</td>
+                <td>Rice Name</td>
+                <td>Rice Stock</td>
+                <td>Rice Price</td>
+            </thead>
+            {% for row in rows %}
+            <tr>
+                <td>{{row[0]}}</td>
+                <td>{{row[1]}}</td>
+                <td>{{row[2]}}</td>
+                <td>{{row[3]}}</td>
+                
+            </tr>
+            {% endfor %}
+        </table><br>    
+        </form>
+        <div>
+        <a href="{{ url_for('home') }}"><button>Back</button></a></div>
+    </body>
+</html>

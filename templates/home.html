@@ -1,0 +1,37 @@
+<html>
+    <head>
+        <meta name="viewport" content="with=device-widt",initial-scale=1.0>
+        <link rel="stylesheet" href="{{ url_for('static',filename='inventory.css') }}">
+        <title>Inventory Sytem</title>
+    </head>
+    <body>
+        <form action="/list" method="POST">
+        <h1>Inventory</h1>
+        <table border="2">
+            <thead>
+                <td>Rice ID</td>
+                <td>Rice Name</td>
+                <td>Rice Stock</td>
+                <td>Rice Price</td>
+            </thead>
+            {% for row in rows %}
+            <tr>
+                <td>{{row['rice_id']}}</td>
+                <td>{{row['rice_name']}}</td>
+                <td>{{row['rice_stock']}}</td>
+                <td>{{row['rice_price']}}</td>
+                
+            </tr>
+            {% endfor %}
+        </table><br>
+        <a href="{{ url_for('listsearch') }}" class="button">Search </a>
+        <a href="{{ url_for('listsales') }}" class="button">Sales </a>
+        <a href="{{ url_for('list') }}" class="button">Insert </a>
+        <a href="{{ url_for('listdelete') }}" class="button">Delete</a>
+        <form action="/login" method="POST">
+            <a href="{{ url_for('login') }}" class="button">Logout </a>
+        </form>
+
+        </form>
+    </body>
+</html>
